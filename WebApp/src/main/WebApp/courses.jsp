@@ -7,6 +7,6 @@
 <title>Test Site</title>
 </head>
 <body>
-Sup boys
+Welcome ${name}
 </body>
 </html>
