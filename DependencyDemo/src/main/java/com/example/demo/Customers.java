@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,7 +9,16 @@ public class Customers {
 	private int custid;
 	private String custName;
 	private String courseName;
+	
+	@Autowired // the Customers class now knows of the existence of Technologies
+	private Technologies techdetail;
 
+	public Technologies getTechdetail() {
+		return techdetail;
+	}
+	public void setTechdetail(Technologies techdetail) {
+		this.techdetail = techdetail;
+	}
 	public int getCustid() {
 		return custid;
 	}
@@ -30,6 +40,7 @@ public class Customers {
 	
 	public void display() {
 		System.out.println("Customers Object Returned Successfully");
+		techdetail.tech();
 	}
 
 	
