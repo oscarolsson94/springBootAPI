@@ -15,7 +15,7 @@ public class TestController {
 	public String courses(HttpServletRequest req) { //grab what is in web params
 		
 		HttpSession session = req.getSession();
-		String name = req.getParameter("name");
+		String name = req.getParameter("name"); //get the name attribute ?name=Oscar
 		
 		session.setAttribute("name", name); //now we can use it in .jsp file with ${name}
 		
