@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
 
 	@RequestMapping("/courses")	
+	
+//	@ResponseBody add ResponseBody if you want to just return statement and not file
 	public String courses() {
-		System.out.println("Welcome to chogge");
 		return "courses.jsp"; //add Jasper dependency for java to know how to convert jsp file
 	}
 	
