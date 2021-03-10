@@ -9,13 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
+@Data 			//Creates toString, equals, hashCode, getters and setters methods for our class
+@AllArgsConstructor		//Creates constructors
 @NoArgsConstructor
-@Entity
+@Entity			//Tells that our class can be represented by a table in the database, with each instance representing a row
 @Table(name = "PRODUCT_TBL")
 public class Product {
-	@Id
+	@Id			//This attribute is the primary key in our entity
 	@GeneratedValue
 	private int id;
 	private String name;
