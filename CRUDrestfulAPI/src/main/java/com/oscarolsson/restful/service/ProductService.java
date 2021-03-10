@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oscarolsson.restful.entity.Product;
+import com.oscarolsson.restful.exception.ResourceNotFoundException;
 import com.oscarolsson.restful.repository.ProductRepository;
 
 @Service
@@ -26,7 +27,7 @@ public class ProductService {
 	
 	//based on id
 	public Product getProductById(int id){ //returns ONE product by primary key id
-		return repository.findById(id).orElse(null);
+		return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " was not found"));
 	}
 	//based on name
 	public Product getProductByName(String name){
