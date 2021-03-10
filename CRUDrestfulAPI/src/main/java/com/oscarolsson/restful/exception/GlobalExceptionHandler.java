@@ -19,6 +19,12 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity(errorDetails, HttpStatus.NOT_FOUND);
 	}
 	
+	@ExceptionHandler(APIException.class)
+	public ResponseEntity<?> handleAPIException(APIException exception, WebRequest request){
+		ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+		return new ResponseEntity(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
 	//handle global exceptions
 	
 	@ExceptionHandler(Exception.class)
