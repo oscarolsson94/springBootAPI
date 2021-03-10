@@ -48,7 +48,7 @@ public class ProductService {
 	
 	//update method
 	public Product updateProduct(Product product) {
-		Product existingProduct=repository.findById(product.getId()).orElse(null);
+		Product existingProduct=repository.findById(product.getId()).orElseThrow(() -> new ResourceNotFoundException("User with id: " + product.getId() + " was not found"));
 		existingProduct.setName(product.getName());
 		existingProduct.setQuantity(product.getQuantity());
 		existingProduct.setPrice(product.getPrice());
