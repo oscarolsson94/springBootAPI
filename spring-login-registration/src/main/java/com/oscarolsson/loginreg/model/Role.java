@@ -16,6 +16,16 @@ public class Role {
 
 	private String name;
 	
+	public Role(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public Role() { //hibernate needs default contructor
+		
+	}
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -28,12 +38,6 @@ public class Role {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Role(String name) {
-		super();
-		this.name = name;
-	}
-	
-	
+
 
 }
