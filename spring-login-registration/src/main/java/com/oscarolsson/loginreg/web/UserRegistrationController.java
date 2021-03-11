@@ -20,6 +20,11 @@ public class UserRegistrationController {
 		this.userService = userService;
 	}
 	
+	@ModelAttribute("user")     //the form data will be saved in the user object
+	public UserRegistrationDto userRegistrationDto() {
+		return new UserRegistrationDto();
+	}
+	
 	@GetMapping
 	public String showRegistrationForm() {
 		return "registration";
