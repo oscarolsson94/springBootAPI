@@ -2,7 +2,6 @@ package com.oscarolsson.loginreg.service;
 
 import java.util.Arrays;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oscarolsson.loginreg.model.Role;
@@ -23,7 +22,7 @@ public class UserServiceImpl implements UserService{
 
 
 	@Override
-	public User save(UserRegistrationDto registrationDto) {
+	public User save(UserRegistrationDto registrationDto) { //saves user to DB
 		User user = new User(registrationDto.getFirstName(),
 				registrationDto.getLastName(),
 				registrationDto.getEmail(),
