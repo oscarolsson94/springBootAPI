@@ -36,7 +36,7 @@ public class User {
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)          //establish many to many SQL relationship
 	@JoinTable(
 			name = "users_roles",
-			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), // create new table "users_roles" and setup foreign keys from the primary keys of main tables
+			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), // create new table "users_roles" and setup foreign keys from the primary key
 			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
 			)
 	private Collection<Role> roles;
@@ -91,9 +91,8 @@ public class User {
 	}
 
 	
-	public User(Long id, String firstName, String lastName, String email, String password, Collection<Role> roles) {
+	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;

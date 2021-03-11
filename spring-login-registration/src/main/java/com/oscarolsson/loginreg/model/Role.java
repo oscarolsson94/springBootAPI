@@ -13,6 +13,7 @@ public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private String name;
 	
 	public Long getId() {
@@ -25,6 +26,11 @@ public class Role {
 		return name;
 	}
 	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Role(String name) {
+		super();
 		this.name = name;
 	}
 	
