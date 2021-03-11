@@ -11,4 +11,9 @@ public class MainController {
 		return "login"; //login thymeleaf template
 	}
 	
+	@GetMapping("/")
+	public String home() {
+		return "index";
+	}
+	
 }
