@@ -8,5 +8,5 @@ import com.oscarolsson.loginreg.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{ //class type of entity and primary key
-
+	User findByEmail(String email);
 }
