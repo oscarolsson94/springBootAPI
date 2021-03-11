@@ -1,6 +1,6 @@
 package com.oscarolsson.loginreg.web.dto;
 
-public class UserRegistrationDto {
+public class UserRegistrationDto { //Dto= Data transfer object
 	
 	private String firstName;
 	private String lastName;
