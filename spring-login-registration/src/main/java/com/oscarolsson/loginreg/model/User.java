@@ -2,13 +2,18 @@ package com.oscarolsson.loginreg.model;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -27,6 +32,13 @@ public class User {
 	//if you dont specify column name it defaults to field name
 	private String email;
 	private String password;
+	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)          //establish many to many SQL relationship
+	@JoinTable(
+			name = "users_roles",
+			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), // create new table "users_roles" and setup foreign keys from the primary keys of main tables
+			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+			)
 	private Collection<Role> roles;
 	
 	
