@@ -4,10 +4,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.oscarolsson.loginreg.model.Role;
@@ -19,6 +21,9 @@ import com.oscarolsson.loginreg.web.dto.UserRegistrationDto;
 public class UserServiceImpl implements UserService{
 
 	private UserRepository userRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	public UserServiceImpl(UserRepository userRepository) {
 		super();
@@ -32,7 +37,7 @@ public class UserServiceImpl implements UserService{
 		User user = new User(registrationDto.getFirstName(),
 				registrationDto.getLastName(),
 				registrationDto.getEmail(),
-				registrationDto.getPassword(),
+				passwordEncoder.encode(registrationDto.getPassword()), //uses encoder when saving password to db
 				Arrays.asList(new Role("ROLE_USER")));
 		
 		return userRepository.save(user);
