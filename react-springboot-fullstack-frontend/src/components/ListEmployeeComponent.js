@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const ListEmployeeComponent = () => {
 
@@ -17,8 +16,6 @@ const ListEmployeeComponent = () => {
         getEmployees();
       },[])
 
-    
-
     return (
         <div>
             <h2 className="text-center">Employees List</h2>
@@ -32,20 +29,19 @@ const ListEmployeeComponent = () => {
                             <th>Actions</th>
                         </tr>
                     </thead>
-
-                    <tbody>
-                        {employees.map((employee) => {
-                            const {firstName, lastName, email, id} = employee;
-                            return (
-                                <tr key={id}>
-                                    <td>{ firstName }</td>
-                                    <td>{ lastName }</td>
-                                    <td>{ email }</td>
-                                    <td></td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
+                        <tbody>
+                            {employees.map((employee) => {
+                                const { firstName, lastName, email, id } = employee;
+                                return (
+                                    <tr key={id}>
+                                        <td>{firstName}</td>
+                                        <td>{lastName}</td>
+                                        <td>{email}</td>
+                                        <td></td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
                 </table>
             </div>
         </div>
