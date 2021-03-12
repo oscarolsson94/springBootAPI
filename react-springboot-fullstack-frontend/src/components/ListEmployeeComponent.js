@@ -7,15 +7,15 @@ const ListEmployeeComponent = () => {
 
     const [employees, setEmployees] = useState([]);
     
-    const getEmployees = () => {
-        return axios.get(EMPLOYEE_API_URL);
+    const getEmployees = async () => {
+        const response = await fetch(EMPLOYEE_API_URL);
+        const data = await response.json()
+        setEmployees(data);
     }
 
     useEffect(()=>{
-        const data = getEmployees();
-        
-        setEmployees(data);
-    },[])
+        getEmployees();
+      },[])
 
     
 
