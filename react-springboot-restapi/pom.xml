@@ -12,7 +12,7 @@
 	<artifactId>react-springboot-restapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>react-springboot-restapi</name>
-	<description>Boot, hibernate, security, thymeleaf etc</description>
+	<description>react frontend spring boot backend</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

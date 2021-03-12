@@ -1,4 +1,4 @@
-package com.oscarolsson.loginreg;
+package com.oscarolsson.reactboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
