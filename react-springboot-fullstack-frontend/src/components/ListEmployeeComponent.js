@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ListEmployeeComponent = () => {
+const ListEmployeeComponent = (props) => {
 
     const EMPLOYEE_API_URL = "http://localhost:8080/api/v1/employees";
 
@@ -14,6 +14,10 @@ const ListEmployeeComponent = () => {
         setLoading(false);
     }
 
+    const addEmployee = () =>{
+        props.history.push("add-employee");
+    }
+
     useEffect(()=>{
         getEmployees();
       },[])
@@ -21,6 +25,9 @@ const ListEmployeeComponent = () => {
     return (
         <div>
             <h2 className="text-center">Employees List</h2>
+            <div className="row">
+                <button className="btn btn-primary" onClick={addEmployee}>Add Employee</button>
+            </div>
             <div className="row">
                 {loading ? <h1>Loading...</h1> :
                     <table className="table table-striped table-bordered">
