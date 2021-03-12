@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const ListEmployeeComponent = () => {
+
+    const EMPLOYEE_API_URL = "http://localhost:8080/api/v1/employees";
+
     const [employees, setEmployees] = useState([]);
     
-    useEffect({
+    const getEmployees = () => {
+        return axios.get(EMPLOYEE_API_URL);
+    }
+
+    useEffect(()=>{
+        const data = getEmployees();
         
+        setEmployees(data);
     },[])
 
     
@@ -25,7 +35,7 @@ const ListEmployeeComponent = () => {
 
                     <tbody>
                         {employees.map((employee) => {
-                            const {firstName, lastName, email, id} = employees;
+                            const {firstName, lastName, email, id} = employee;
                             return (
                                 <tr key={id}>
                                     <td>{ firstName }</td>
