@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.oscarolsson.springboot.model.Employee;
 import com.oscarolsson.springboot.repository.EmployeeRepository;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")		//enable cross-domain communication
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
